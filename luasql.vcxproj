@@ -119,8 +119,7 @@
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MinimalRebuild>false</MinimalRebuild>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <DisableSpecificWarnings>
-      </DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
       <LanguageStandard>Default</LanguageStandard>
       <CallingConvention>Cdecl</CallingConvention>
     </ClCompile>
@@ -181,8 +180,7 @@
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>.\src\;.\mysql-5.7.26-win32\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <DisableSpecificWarnings>
-      </DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
       <DebugInformationFormat />
       <LanguageStandard>Default</LanguageStandard>
       <CallingConvention>Cdecl</CallingConvention>
