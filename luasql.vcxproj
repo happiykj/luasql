@@ -113,7 +113,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_USRDLL;_CRT_SECURE_NO_DEPRECATE;LUASQL_API=__declspec(dllexport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>.\src\;.\mysql-5.7.26-win32\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\mysql-5.7.26-win32\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -131,6 +131,7 @@
       <AdditionalDependencies>libmysql.lib;mysqlclient.lib;lua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DataExecutionPrevention />
       <ModuleDefinitionFile>src/mysql.def</ModuleDefinitionFile>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -144,20 +145,19 @@
       <PreprocessorDefinitions>_DEBUG;_USRDLL;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;LUASQL_API=__declspec(dllexport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>.\src\;.\mysql\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\mysql-5.7.26-winx64\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <DisableSpecificWarnings>
-      </DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
       <LanguageStandard>Default</LanguageStandard>
-      <CallingConvention>StdCall</CallingConvention>
+      <CallingConvention>Cdecl</CallingConvention>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>.\mysql\lib\;$(SolutionDir)Libs\$(Platform)\$(Configuration)\;$(SolutionDir)Libs\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>.\mysql-5.7.26-winx64\lib\;$(SolutionDir)Libs\$(Platform)\$(Configuration)\;$(SolutionDir)Libs\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>libmysql.lib;mysqlclient.lib;lua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DataExecutionPrevention />
@@ -178,7 +178,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;LUASQL_API=__declspec(dllexport);_CRT_SECURE_NO_DEPRECATE;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>.\src\;.\mysql-5.7.26-win32\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\mysql-5.7.26-win32\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244</DisableSpecificWarnings>
       <DebugInformationFormat />
@@ -211,13 +211,12 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LUASQL_API=__declspec(dllexport);_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>.\src\;.\mysql\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\mysql-5.7.26-winx64\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <DisableSpecificWarnings>
-      </DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
       <DebugInformationFormat />
       <LanguageStandard>Default</LanguageStandard>
-      <CallingConvention>StdCall</CallingConvention>
+      <CallingConvention>Cdecl</CallingConvention>
       <CompileAs>Default</CompileAs>
     </ClCompile>
     <Link>
@@ -225,7 +224,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>.\mysql\lib\;$(SolutionDir)Libs\$(Platform)\$(Configuration)\;$(SolutionDir)Libs\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>.\mysql-5.7.26-winx64\lib\;$(SolutionDir)Libs\$(Platform)\$(Configuration)\;$(SolutionDir)Libs\$(Platform)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <AdditionalDependencies>libmysql.lib;mysqlclient.lib;lua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DataExecutionPrevention />
