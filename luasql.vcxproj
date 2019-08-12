@@ -82,23 +82,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)execute\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <OutDir>$(SolutionDir)execute\$(Platform)\$(Configuration)\clibs\$(ProjectName)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <TargetName>mysql</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)execute\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <OutDir>$(SolutionDir)execute\$(Platform)\$(Configuration)\clibs\$(ProjectName)\</OutDir>
     <TargetName>mysql</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)execute\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <OutDir>$(SolutionDir)execute\$(Platform)\$(Configuration)\clibs\$(ProjectName)\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <TargetName>mysql</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)execute\$(Platform)\$(Configuration)\$(ProjectName)\</OutDir>
+    <OutDir>$(SolutionDir)execute\$(Platform)\$(Configuration)\clibs\$(ProjectName)\</OutDir>
     <TargetName>mysql</TargetName>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -114,7 +114,7 @@
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>.\mysql-5.7.26-win32\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <MinimalRebuild>false</MinimalRebuild>
@@ -146,11 +146,11 @@
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>.\mysql-5.7.26-winx64\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
       <LanguageStandard>Default</LanguageStandard>
       <CallingConvention>Cdecl</CallingConvention>
     </ClCompile>
@@ -175,13 +175,13 @@
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <SDLCheck>
       </SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;LUASQL_API=__declspec(dllexport);_CRT_SECURE_NO_DEPRECATE;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CRT_SECURE_NO_DEPRECATE;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>.\mysql-5.7.26-win32\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
       <DisableSpecificWarnings>4244</DisableSpecificWarnings>
-      <DebugInformationFormat />
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <LanguageStandard>Default</LanguageStandard>
       <CallingConvention>Cdecl</CallingConvention>
     </ClCompile>
@@ -195,6 +195,7 @@
       <AdditionalDependencies>libmysql.lib;mysqlclient.lib;lua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DataExecutionPrevention />
       <ModuleDefinitionFile>src/mysql.def</ModuleDefinitionFile>
+      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -213,8 +214,8 @@
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>.\mysql-5.7.26-winx64\include\;..\lua\lua\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ProgramDataBaseFileName>$(IntDir)$(TargetName)$(PlatformToolsetVersion).pdb</ProgramDataBaseFileName>
-      <DisableSpecificWarnings>4244</DisableSpecificWarnings>
-      <DebugInformationFormat />
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <LanguageStandard>Default</LanguageStandard>
       <CallingConvention>Cdecl</CallingConvention>
       <CompileAs>Default</CompileAs>
@@ -229,6 +230,7 @@
       <AdditionalDependencies>libmysql.lib;mysqlclient.lib;lua.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DataExecutionPrevention />
       <ModuleDefinitionFile>src/mysql.def</ModuleDefinitionFile>
+      <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
